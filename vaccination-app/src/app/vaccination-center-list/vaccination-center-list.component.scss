@@ -1,0 +1,94 @@
+.selected button{
+    background-color:#369;
+    color: white;
+}
+
+body{
+    display: flex;
+    height: 400px;
+    align-items: center;
+    flex-direction: column;
+    font-size: 125%;
+    
+}
+
+input{
+    width: 200px;
+    height: 20px;
+    font-size: min(4vh, 2vw, 14px);
+}
+
+.searchcenter button{
+    height: 29px;
+    margin-left: 4px;
+    font-size: min(4vh, 2vw, 12px);
+    background: none;
+    border: none;
+    color: #369;
+    cursor: pointer;
+}
+
+.searchcenter button:hover{
+    color: rgb(40, 136, 214);
+}
+
+.searchcenter{
+    border: 1px solid #369;
+    border-radius: 2px;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+}
+
+
+ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+
+li{
+    list-style: none;
+    font-size: min(4vh, 2vw, 14px);
+    display: flex;
+    align-items: center;
+    border: solid #369 2px;
+    border-radius: 4px;
+    width: 380px;
+    margin-top: 20px;
+    padding-left: 4px;
+    padding-right: 20px;
+    height: 110px;
+    justify-content: space-between;
+}
+
+.details span{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+}
+
+
+li button{
+    width: 70Opx;
+    height: 40px;
+    font-size: min(4vh, 2vw, 13px);
+    border: solid black 1px;
+    border-radius: 3px;
+    background-color:#369;
+    color: white;
+    cursor: pointer;
+    
+    
+}
+
+li button:hover{
+    border: solid rgb(69, 222, 245) 1px;
+}
+
+
+
+
+

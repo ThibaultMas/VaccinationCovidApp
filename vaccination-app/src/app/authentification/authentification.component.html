@@ -1,0 +1,9 @@
+<div class="auth">
+    <form>
+        <input id="login" name="login" placeholder="email" [(ngModel)] = "mail" [ngClass]="mailerror? 'error' : ''"/>
+        <input type="password" id="password" name="password" placeholder="mot de passe" [(ngModel)]="password" [ngClass]="passworderror? 'error' : ''"/>
+        <button (click)="logIn()"> Se connecter </button>
+        <span> {{errormsg}} </span>
+    </form>
+</div>
+

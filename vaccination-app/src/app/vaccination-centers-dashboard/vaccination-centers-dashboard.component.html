@@ -1,0 +1,18 @@
+
+<section>
+<div class="searchcenters">
+<input [(ngModel)]="city" placeholder=" Filtrer par ville"/>
+<button (click)="getAllVaccinationCenter()"> <fa-icon [icon]="searchIcon"> </fa-icon></button>
+</div>
+
+<button class="newbutton" (click) = "showCreateCenter()"> Nouveau </button>
+</section>
+
+<ul>
+    <li *ngFor="let aCenter of centers">
+        <div class="details">
+            <span> {{aCenter.name}} <button> <fa-icon [icon]="modifyIcon"></fa-icon> </button> </span>
+            <span> {{aCenter.postal}} {{aCenter.city}} <button> <fa-icon [icon]="usersIcon"></fa-icon> </button></span>
+        </div>
+    </li>
+</ul>

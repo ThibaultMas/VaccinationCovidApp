@@ -1,0 +1,102 @@
+.searchcenters{
+    height: 30px;
+    border: 1px solid #369;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.searchcenters button{
+    background: none;
+    border: none;
+    height: 100%;
+    font-size: min(4vh, 2vw, 12px);
+    color: #369;
+    cursor: pointer;
+}
+
+.searchcenters button:hover{
+    color: rgb(40, 136, 214);
+}
+
+input{
+ height: fit-content;
+ border: none;
+ height: 90%;
+ width: 170px;
+ font-size: min(4vh, 2vw, 13px);
+}
+
+section {
+    display: flex;
+    height: 30px;
+    margin-left: 40px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.newbutton{
+    height: 100%;
+    width: 100px;
+    font-size: min(4vh, 2vw, 12px);
+    border: solid #369 1px;
+    border-radius: 3px;
+    background-color:#369;
+    color: white;
+    cursor: pointer;
+    margin-left: 35px;
+}
+
+.newbutton:hover{
+    background-color: rgb(40, 136, 214);
+}
+
+ul{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin-bottom: 2px;
+    max-height: 157px;
+    overflow-y: auto;
+}
+
+li{
+    list-style: none;
+    font-size: min(4vh, 2vw, 14px);
+    border: solid #369 2px;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    width: 230px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 60px;
+}
+
+.details span{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.details button{
+    background: none;
+    border: none;
+    height: 100%;
+    font-size: min(4vh, 2vw, 14px);
+    color: #369;
+    cursor: pointer;
+}
+
+.details button:hover{
+    color: rgb(40, 136, 214);
+}

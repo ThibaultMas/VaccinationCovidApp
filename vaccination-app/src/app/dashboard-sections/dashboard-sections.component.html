@@ -1,0 +1,6 @@
+<div class="options">
+    <button [disabled]="!hasRole('superadmin')" (click) = "show1()"> Centres </button>
+    <button [disabled]="!hasRole('admin')" (click) = "show2()"> Mon centre </button>
+    <button [disabled]="hasRole('superadmin')" (click) = "show3()"> Planning </button>
+    <button [disabled]="!hasRole('superadmin')" (click) = "show4()"> Config. </button>
+</div>

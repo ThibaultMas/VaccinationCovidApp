@@ -1,0 +1,49 @@
+<div class="reservation" *ngIf="center">
+    <div class="details">
+        <span> {{center.name}}</span> <br/>
+        <span> {{center.address}}, {{center.postal}} {{center.city}} 
+        </span> <br/>
+        <span> {{center.phone}} </span>
+    </div>
+
+    <form>
+    <div class="formreservation">
+        <div id="fnamelname">
+        <div class="labelinput">
+            <label for="fname"> Prénom </label>
+            <input id="fname" name="fname" [(ngModel)]="booking.fname" [ngClass]="emptyfname? 'empty' : ''"/>
+        </div>
+        <div class="labelinput" id="lnamegroup">
+            <label for="lname"> Nom </label>
+            <input id="lname" name="lname" [(ngModel)] = "booking.lname" [ngClass]="emptylname? 'empty' : ''"/>
+        </div>
+        </div>
+
+        <div class="labelinput">
+            <label for="email"> Email </label>
+            <input id="email" name="email" [(ngModel)] = "booking.mail" [ngClass]="emptymail? 'empty' : ''"/>
+        </div>
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)] = "booking.phone" [ngClass]="emptyphone? 'empty' : ''"/>
+        </div>
+        <div class="button">
+        <div class="labelinput">
+            <label for="date"> Date du rendez-vous </label>
+            <input type="date" id="date" name="date" [(ngModel)] = "booking.registration_date" [ngClass]="emptydate? 'empty' : ''" value="yyyy-mm-dd"/>
+        </div>
+            <button (click)="saveBooking()">Réserver</button>
+        </div>
+        <span> {{emptymsg}} </span>
+    </div>
+    </form>
+    
+    <!-- <div>
+        <button (click)="clearName()"> Clear Name</button>
+        <button id="delete" (click)="delete()"> Supprimer </button>
+    </div> -->
+
+</div>
+
+
+

@@ -1,0 +1,30 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.auth{
+    width: 70Opx;
+    height: 40px;
+    font-size: min(4vh, 2vw, 13px);
+    border: solid #369 1px;
+    border-radius: 3px;
+    background-color:#369;
+    color: white;
+}
+
+.auth:hover{
+    background-color: rgb(40, 136, 214);
+}
+
+button{
+    background: none;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
+}

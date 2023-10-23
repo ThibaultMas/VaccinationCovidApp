@@ -1,0 +1,121 @@
+
+.reservation{
+    display: flex;
+    height: 500px;
+    margin-top: 50px;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 10px;
+    background: linear-gradient(to top left, #54a0ff, 80%, #2559dd);
+}
+
+.details{
+    font-size: min(4vh, 2vw, 16px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 2px #369;
+    border-radius: 4px;
+    width: 380px;
+    margin-top: 20px;
+    padding: 10px;
+    height: 110px;
+    background-color: white;
+}
+
+.details span{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1px;
+}
+
+.formreservation{
+    display: flex;
+    width: 395px;
+    height: 180px;
+    margin-top: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: min(4vh, 2vw, 14px);
+}
+
+.labelinput label{
+    display: block;
+    color: white;
+    margin-bottom: 3px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 1px #369;
+}
+
+.labelinput{
+    margin-bottom: 20px;
+}
+
+input{
+    font-family: Arial, Helvetica, sans-serif;
+    border:solid rgb(255, 255, 255) 2px;
+    border-radius: 3px;
+    height: 15px;
+    font-size: min(4vh, 2vw, 12px);
+}
+
+#fnamelname{
+    display: flex;
+    justify-content: space-between;
+}
+
+.labelinput #email{
+    width: 200px;
+}
+
+label{
+    width: fit-content;
+}
+
+
+.button {
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    width: 170px;
+    height: 40px;
+    font-size: min(4vh, 2vw, 13px);
+    border: none;
+    border-radius: 3px;
+    background-color:#369;
+    color: white;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 0px 0px 4px rgb(255, 255, 255);
+    transition: 0.2s;
+}
+
+input:hover{
+    border: solid #369 2px;
+}
+
+.empty{
+    border: solid #ee5253 2px;
+}
+
+
+form span{
+    color:#ee5253;
+    text-shadow: 1px 1px 0px #000615;
+    font-weight: bold;
+    font-size: min(4vh, 2vw, 15px);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+

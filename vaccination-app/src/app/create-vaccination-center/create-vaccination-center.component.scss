@@ -1,0 +1,70 @@
+form{
+    border: solid;
+    width: 400px;
+}
+
+.labelinput input{
+    border: 2px solid #369;
+    border-radius: 2px;
+    padding: 1px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    font-size: min(4vh, 2vw, 13px);
+}
+
+.labelinput label{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: min(4vh, 2vw, 13px);
+}
+
+.labelinput{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.citypostal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.cancelupdate button{
+    font-size: min(4vh, 2vw, 13px);
+    border: solid #369 1px;
+    width: 100px;
+    border-radius: 3px;
+    background-color:#369;
+    color: white;
+    cursor: pointer;
+}
+
+.cancelupdate button:hover{
+    background-color: rgb(40, 136, 214);
+}
+
+.cancelupdate{
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+}
+
+#usersicon{
+    background: none;
+    border: none;
+    font-size: min(4vh, 2vw, 16px);
+    color: #369;
+    cursor: pointer;
+}
+
+#usersicon:hover{
+    color: rgb(40, 136, 214);
+}

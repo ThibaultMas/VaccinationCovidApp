@@ -1,0 +1,119 @@
+
+###
+POST http://localhost:8080/api/private/superadmin/createsuperadmin
+Content-Type: application/json
+
+{
+    "fname" : "Thibault",
+    "lname" : "Masson",
+    "mail" : "thibault.masson@test.fr",
+    "password" : "titi",
+    "phone" : "0667854525"
+}
+
+###
+POST http://localhost:8080/api/private/superadmin/createcenter
+Content-Type: application/json
+
+{   "name" : "Salle des sports",
+    "city" : "Dombasle sur Meurthe",
+    "address" : "115 avenue du Général Leclerc",
+    "postal" : "54110",
+    "phone" : "0605660978"
+}
+
+###
+GET http://localhost:8080/api/public/patient/readcenters?city=Na
+
+###
+GET http://localhost:8080/api/public/patient/readcenters
+
+###
+DELETE  http://localhost:8080/api/private/superadmin/deletecenter/1
+
+###
+PUT  http://localhost:8080/api/private/superadmin/updatecenter/1
+Content-Type: application/json
+
+{   
+    "name" : "CH Lunéville",
+    "city" : "Luneville",
+    "address" : "6 rue des sables",
+    "phone" : ""
+}
+
+###
+POST http://localhost:8080/api/private/superadmin/createadmin/1
+Content-Type: application/json
+
+{
+    "fname" : "Marc",
+    "lname" : "Jewel",
+    "mail" : "test",
+    "password" : "test",
+    "phone" : "0687621221"
+}
+
+###
+GET http://localhost:8080/api/private/auth/usermail/test
+
+###
+GET http://localhost:8080/api/private/auth/userid/1
+
+###
+POST http://localhost:8080/api/public/patient/pregister/1
+Content-Type: application/json
+
+{   
+    "fname" : "Thibault",
+    "lname" : "Masson",
+    "mail" : "exemple.random@exe.fr",
+    "phone" : "0645783409",
+    "registration_date" : "2023-07-12"
+    
+}
+
+###
+GET http://localhost:8080/api/private/superadmin/readadmins
+
+###
+DELETE  http://localhost:8080/api/private/superadmin/deleteadmin/1
+
+###
+PUT  http://localhost:8080/api/private/superadmin/updateadmin/1
+Content-Type: application/json
+
+{   
+    "fname" : "Marc",
+    "lname" : "Jewel",
+    "mail" : "marc.jewel@gmail.com",
+    "password" : "marcojewel567",
+    "phone" : "0601020304"
+}
+
+###
+GET http://localhost:8080/api/private/admin/readpatients/1
+
+###
+DELETE http://localhost:8080/api/private/admin/deletepatient/1/2
+
+###
+POST http://localhost:8080/api/private/admin/createdoctor/1
+Content-Type: application/json
+
+{
+    "fname" : "Thierry",
+    "lname" : "Rahuel",
+    "mail" : "thierry.rahuels@test.fr",
+    "password" : "thierrryyy",
+    "phone" : "0687908765"
+}
+
+###
+GET http://localhost:8080/api/private/admin/readdoctors/1
+
+###
+GET http://localhost:8080/api/private/doctor/readpatients/1/Masson
+
+###
+PUT http://localhost:8080/api/private/doctor/updatepatientstatus/1/true

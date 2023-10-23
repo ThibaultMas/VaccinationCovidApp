@@ -1,0 +1,31 @@
+<form>
+    <div class="labelinput">
+        <label for="name"> Nom </label>
+        <input id="name" name="name"/>
+    </div> 
+    <div class="labelinput">
+        <label for="phone"> Téléphone </label>
+        <input id="phone" name="phone"/>
+    </div>
+    <div class="labelinput">
+        <label for="address"> Adresse </label>
+        <input id="address" name="address"/>
+    </div>
+    <div class="citypostal">
+        <div class="labelinput">
+            <label for="city"> Ville </label>
+            <input id="city" name="city"/>
+        </div>
+        <div class="labelinput">
+            <label for="postal"> Code Postal </label>
+            <input id="postal" name="postal"/>
+        </div>
+    </div>
+    <div class="buttons">
+        <button id="usersicon"> <fa-icon [icon]="usersIcon"></fa-icon> </button>
+        <div class="cancelupdate">
+            <button> Annuler </button>
+            <button> Mettre à jour </button>
+        </div>
+    </div>
+</form>
