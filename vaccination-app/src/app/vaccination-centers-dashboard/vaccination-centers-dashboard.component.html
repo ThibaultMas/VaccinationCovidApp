@@ -11,7 +11,7 @@
 <ul>
     <li *ngFor="let aCenter of centers">
         <div class="details">
-            <span> {{aCenter.name}} <button> <fa-icon [icon]="modifyIcon"></fa-icon> </button> </span>
+            <span> {{aCenter.name}} <button routerLink="../updatecenter/{{aCenter.id}}"> <fa-icon [icon]="modifyIcon"></fa-icon> </button> </span>
             <span> {{aCenter.postal}} {{aCenter.city}} <button> <fa-icon [icon]="usersIcon"></fa-icon> </button></span>
         </div>
     </li>

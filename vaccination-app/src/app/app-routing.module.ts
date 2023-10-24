@@ -7,6 +7,7 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { VaccinationCentersDashboardComponent } from './vaccination-centers-dashboard/vaccination-centers-dashboard.component';
 import { CreateVaccinationCenterComponent } from './create-vaccination-center/create-vaccination-center.component';
+import { UpdateVaccinationCenterComponent } from './update-vaccination-center/update-vaccination-center.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "/centers", pathMatch:'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: "authentification", component: AuthentificationComponent},
   {path: "userdashboard/:id", component: UserDashboardComponent,
     children: [{path: "sadmincenters", component: VaccinationCentersDashboardComponent},
+               {path: "updatecenter/:id", component: UpdateVaccinationCenterComponent},
                {path: "createcenter", component: CreateVaccinationCenterComponent}]}
 ];
 

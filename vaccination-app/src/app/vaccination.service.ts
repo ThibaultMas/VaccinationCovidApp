@@ -33,4 +33,9 @@ export class VaccinationService {
   createCenter(center:VaccinationCenter) : Observable<VaccinationCenter>{
     return this.http.post<VaccinationCenter>("/api/private/superadmin/createcenter", center, {headers: {'Content-Type': 'application/json'}});
   }
+
+  updateCenter(id:Number, center:VaccinationCenter) : Observable<VaccinationCenter>{
+    return this.http.put<VaccinationCenter>("/api/private/superadmin/updatecenter/"+id, center, {headers: {'Content-Type': 'application/json'}});
+  }
+
 }

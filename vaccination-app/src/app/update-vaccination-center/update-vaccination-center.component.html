@@ -1,0 +1,38 @@
+<div class="component" *ngIf="center">
+    <form *ngIf="!centerUpdated">
+        <div class="labelinput">
+            <label for="name"> Nom </label>
+            <input id="name" name="name" [(ngModel)]="center.name"/>
+        </div> 
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)]="center.phone"/>
+        </div>
+        <div class="labelinput">
+            <label for="address"> Adresse </label>
+            <input id="address" name="address" [(ngModel)]="center.address"/>
+        </div>
+        <div class="citypostal">
+            <div class="labelinput">
+                <label for="city"> Ville </label>
+                <input id="city" name="city" [(ngModel)]="center.city"/>
+            </div>
+            <div class="labelinput">
+                <label for="postal"> Code Postal </label>
+                <input id="postal" name="postal" [(ngModel)]="center.postal"/>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="usersicon"> <fa-icon [icon]="usersIcon"></fa-icon> </button>
+            <div class="cancelupdate">
+                <button routerLink="../../sadmincenters"> Annuler </button>
+                <button (click)="updateCenter()"> Valider </button>
+            </div>
+        </div>
+    </form>
+    
+    <div id="updated" *ngIf="centerUpdated">
+        Les informations du centre {{center.name}} ont bien été mises à jour
+    </div>
+</div>
+    

@@ -39,7 +39,7 @@ label{
     margin-top: 20px;
 }
 
-.cancelcreate button{
+.cancelupdate button{
     font-size: min(4vh, 2vw, 13px);
     border: solid #369 1px;
     width: 100px;
@@ -49,33 +49,30 @@ label{
     cursor: pointer;
 }
 
-.cancelcreate button:hover{
+.cancelupdate button:hover{
     background-color: rgb(40, 136, 214);
 }
 
-.cancelcreate{
+.cancelupdate{
     display: flex;
-    justify-content: space-evenly;
-    width: 100%
+    justify-content: space-between;
+    width: 220px;
 }
 
-.empty{
-    border: solid #ee5253 2px;
-    border-radius: 2px;
+#usersicon{
+    background: none;
+    border: none;
+    font-size: min(4vh, 2vw, 16px);
+    color: #369;
+    cursor: pointer;
 }
 
-form span{
-    color:#ee5253;
-    text-shadow: 1px 1px 0px #000615;
-    font-weight: bold;
-    font-size: min(4vh, 2vw, 13px);
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 5px;
+#usersicon:hover{
+    color: rgb(40, 136, 214);
 }
 
-#created{
+
+#updated{
     margin-top: 100px;
     width: 100%;
     text-align: center;

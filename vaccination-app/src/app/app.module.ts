@@ -16,6 +16,7 @@ import { PlanningComponent } from './planning/planning.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateVaccinationCenterComponent } from './create-vaccination-center/create-vaccination-center.component';
+import { UpdateVaccinationCenterComponent } from './update-vaccination-center/update-vaccination-center.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateVaccinationCenterComponent } from './create-vaccination-center/cr
     MycenterDashboardComponent,
     PlanningComponent,
     ConfigurationComponent,
-    CreateVaccinationCenterComponent
+    CreateVaccinationCenterComponent,
+    UpdateVaccinationCenterComponent
   ],
   imports: [
     BrowserModule,
