@@ -8,10 +8,6 @@ import { User } from '../authentification/user';
 })
 export class DashboardSectionsComponent implements OnInit {
   @Input() user?: User;
-  @Output() displayed1 = new EventEmitter();
-  @Output() displayed2 = new EventEmitter();
-  @Output() displayed3 = new EventEmitter();
-  @Output() displayed4 = new EventEmitter();
 
   constructor() {}
 
@@ -21,22 +17,6 @@ export class DashboardSectionsComponent implements OnInit {
 
   hasRole(role: string) {
     return this.user?.role == role;
-  }
-
-  show1(){
-    this.displayed1.emit();
-  }
-
-  show2(){
-    this.displayed2.emit();
-  }
-
-  show3(){
-    this.displayed3.emit();
-  }
-
-  show4(){
-    this.displayed4.emit();
   }
   
 }

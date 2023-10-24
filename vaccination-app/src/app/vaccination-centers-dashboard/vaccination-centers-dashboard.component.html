@@ -1,11 +1,11 @@
-
+<div class="component">
 <section>
 <div class="searchcenters">
 <input [(ngModel)]="city" placeholder=" Filtrer par ville"/>
 <button (click)="getAllVaccinationCenter()"> <fa-icon [icon]="searchIcon"> </fa-icon></button>
 </div>
 
-<button class="newbutton" (click) = "showCreateCenter()"> Nouveau </button>
+<button class="newbutton" routerLink="../createcenter"> Nouveau </button>
 </section>
 
 <ul>
@@ -16,3 +16,4 @@
         </div>
     </li>
 </ul>
+</div>

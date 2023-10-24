@@ -1,6 +1,6 @@
 <div class="options">
-    <button [disabled]="!hasRole('superadmin')" (click) = "show1()"> Centres </button>
-    <button [disabled]="!hasRole('admin')" (click) = "show2()"> Mon centre </button>
-    <button [disabled]="hasRole('superadmin')" (click) = "show3()"> Planning </button>
-    <button [disabled]="!hasRole('superadmin')" (click) = "show4()"> Config. </button>
+    <button [disabled]="!hasRole('superadmin')" [routerLink]="['./sadmincenters']"> Centres </button>
+    <button [disabled]="!hasRole('admin')"> Mon centre </button>
+    <button [disabled]="hasRole('superadmin')"> Planning </button>
+    <button [disabled]="!hasRole('superadmin')"> Config. </button>
 </div>

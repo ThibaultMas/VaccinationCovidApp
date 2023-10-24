@@ -29,4 +29,8 @@ export class VaccinationService {
   createBooking(id:Number, booking:Booking) : Observable<Booking>{
     return this.http.post<Booking>("/api/public/patient/pregister/"+id, booking, {headers: {'Content-Type': 'application/json'}});
   }
+
+  createCenter(center:VaccinationCenter) : Observable<VaccinationCenter>{
+    return this.http.post<VaccinationCenter>("/api/private/superadmin/createcenter", center, {headers: {'Content-Type': 'application/json'}});
+  }
 }

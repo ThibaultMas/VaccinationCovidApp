@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class AuthentificationComponent implements OnInit{
         console.log(this.user);
         if(this.user){
           if(this.user.password == this.password){
-            this.router.navigate(['userdashboard', this.user.id])
+            this.router.navigate(['userdashboard', this.user.id]);
           }
           
           else{
@@ -42,7 +42,7 @@ export class AuthentificationComponent implements OnInit{
         }
   
         else {
-          this.errormsg = "Aucun administrateur ou médecin ayant cet email a été trouvé";
+          this.errormsg = "Aucun administrateur ou médecin ayant cet email n'a été trouvé";
         }
       })
 

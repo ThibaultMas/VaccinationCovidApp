@@ -1,31 +1,39 @@
-<form>
+<div class="component">
+<form *ngIf="!centerCreated">
     <div class="labelinput">
         <label for="name"> Nom </label>
-        <input id="name" name="name"/>
+        <input id="name" name="name" [(ngModel)]="center.name" [ngClass]="emptyname? 'empty' : ''" />
     </div> 
     <div class="labelinput">
         <label for="phone"> Téléphone </label>
-        <input id="phone" name="phone"/>
+        <input id="phone" name="phone" [(ngModel)]="center.phone" [ngClass]="emptyphone? 'empty' : ''"/>
     </div>
     <div class="labelinput">
         <label for="address"> Adresse </label>
-        <input id="address" name="address"/>
+        <input id="address" name="address" [(ngModel)]="center.address" [ngClass]="emptyaddress? 'empty' : ''"/>
     </div>
     <div class="citypostal">
         <div class="labelinput">
             <label for="city"> Ville </label>
-            <input id="city" name="city"/>
+            <input id="city" name="city" [(ngModel)]="center.city" [ngClass]="emptycity? 'empty' : ''"/>
         </div>
         <div class="labelinput">
             <label for="postal"> Code Postal </label>
-            <input id="postal" name="postal"/>
+            <input id="postal" name="postal" [(ngModel)]="center.postal" [ngClass]="emptypostal? 'empty' : ''"/>
         </div>
     </div>
     <div class="buttons">
         <button id="usersicon"> <fa-icon [icon]="usersIcon"></fa-icon> </button>
         <div class="cancelupdate">
-            <button> Annuler </button>
-            <button> Mettre à jour </button>
+            <button routerLink="../sadmincenters"> Annuler </button>
+            <button (click)="createCenter()"> Valider </button>
         </div>
     </div>
+    <span> {{emptymsg}} </span>
 </form>
+
+<div id="created" *ngIf="centerCreated">
+    Le centre {{center.name}} a bien été créé
+</div>
+
+</div>

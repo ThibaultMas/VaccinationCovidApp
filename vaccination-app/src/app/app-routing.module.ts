@@ -5,14 +5,18 @@ import { VaccinationCenterComponent } from './vaccination-center/vaccination-cen
 import { PatientRegisteredComponent } from './patient-registered/patient-registered.component';
 import { AuthentificationComponent } from './authentification/authentification.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { VaccinationCentersDashboardComponent } from './vaccination-centers-dashboard/vaccination-centers-dashboard.component';
+import { CreateVaccinationCenterComponent } from './create-vaccination-center/create-vaccination-center.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: "/centers", pathMatch:'full'},
   {path: "centers", component: VaccinationCenterListComponent},
   {path: "centers/register/:id", component: VaccinationCenterComponent},
   {path: "registered", component: PatientRegisteredComponent},
   {path: "authentification", component: AuthentificationComponent},
-  {path: "userdashboard/:id", component: UserDashboardComponent},
-  {path: '', redirectTo: '/centers', pathMatch: 'full'}
+  {path: "userdashboard/:id", component: UserDashboardComponent,
+    children: [{path: "sadmincenters", component: VaccinationCentersDashboardComponent},
+               {path: "createcenter", component: CreateVaccinationCenterComponent}]}
 ];
 
 @NgModule({

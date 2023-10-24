@@ -1,12 +1,8 @@
 <body *ngIf="user">
 <p>Bienvenue dans votre tableau de bord {{user.fname}} !</p>
 <div class="dashboard">
-    <app-dashboard-sections (displayed1)="showComponent1()" (displayed2)="showComponent2()" (displayed3)="showComponent3()" (displayed4)="showComponent4()" [user] = "user"></app-dashboard-sections>
-    <app-vaccination-centers-dashboard *ngIf="displayComponent1" (displayCreateCenter)="showCreateCenter()"></app-vaccination-centers-dashboard>
-    <app-create-vaccination-center *ngIf="displayCreateCenter"></app-create-vaccination-center>
-    <app-mycenter-dashboard *ngIf="displayComponent2"></app-mycenter-dashboard>
-    <app-planning *ngIf="displayComponent3"></app-planning>
-    <app-configuration *ngIf="displayComponent4"></app-configuration>
+    <app-dashboard-sections [user] = "user"></app-dashboard-sections>
     <button routerLink="/authentification"> <fa-icon [icon]="logoutIcon"> </fa-icon> </button>
+    <router-outlet></router-outlet>
 </div>
 </body>
