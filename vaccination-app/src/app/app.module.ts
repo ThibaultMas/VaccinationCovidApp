@@ -17,6 +17,8 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreateVaccinationCenterComponent } from './create-vaccination-center/create-vaccination-center.component';
 import { UpdateVaccinationCenterComponent } from './update-vaccination-center/update-vaccination-center.component';
+import { UpdateSuperadminComponent } from './update-superadmin/update-superadmin.component';
+import { CreateSuperadminComponent } from './create-superadmin/create-superadmin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { UpdateVaccinationCenterComponent } from './update-vaccination-center/up
     PlanningComponent,
     ConfigurationComponent,
     CreateVaccinationCenterComponent,
-    UpdateVaccinationCenterComponent
+    UpdateVaccinationCenterComponent,
+    UpdateSuperadminComponent,
+    CreateSuperadminComponent
   ],
   imports: [
     BrowserModule,

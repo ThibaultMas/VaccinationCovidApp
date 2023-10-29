@@ -19,6 +19,7 @@ public class SuperAdmin extends User{
     public List<VaccinationCenter> getCenters() {
         return centers;
     }
+    
     public void setCenters(List<VaccinationCenter> centers) {
         this.centers = centers;
     }

@@ -27,7 +27,7 @@ export class UpdateVaccinationCenterComponent implements OnInit {
 
     updateCenter(){
       if(this.center){
-        this.vaccinationService.updateCenter(this.center?.id, this.center).subscribe();
+        this.vaccinationService.updateCenter(this.center.id, this.center).subscribe();
         this.centerUpdated = true;
       }
 

@@ -8,6 +8,9 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { VaccinationCentersDashboardComponent } from './vaccination-centers-dashboard/vaccination-centers-dashboard.component';
 import { CreateVaccinationCenterComponent } from './create-vaccination-center/create-vaccination-center.component';
 import { UpdateVaccinationCenterComponent } from './update-vaccination-center/update-vaccination-center.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { UpdateSuperadminComponent } from './update-superadmin/update-superadmin.component';
+import { CreateSuperadminComponent } from './create-superadmin/create-superadmin.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "/centers", pathMatch:'full'},
@@ -18,7 +21,10 @@ const routes: Routes = [
   {path: "userdashboard/:id", component: UserDashboardComponent,
     children: [{path: "sadmincenters", component: VaccinationCentersDashboardComponent},
                {path: "updatecenter/:id", component: UpdateVaccinationCenterComponent},
-               {path: "createcenter", component: CreateVaccinationCenterComponent}]}
+               {path: "createcenter", component: CreateVaccinationCenterComponent},
+               {path: "configuration", component: ConfigurationComponent},
+               {path: "updatesuperadmin/:id", component: UpdateSuperadminComponent},
+               {path: "createsuperadmin", component: CreateSuperadminComponent}]}
 ];
 
 @NgModule({

@@ -83,12 +83,31 @@ public class SuperAdminController {
     public void updateAdmin(@RequestBody Admin admin, @PathVariable Integer id){
         adminService.updateAdmin(admin, id);
     }
+    
+    // Gestion des Super Admins
 
     @PostMapping(path = "/createsuperadmin", consumes = {"application/json"})
     public void createSuperAdmin(@RequestBody SuperAdmin superAdmin){
         superAdmin.setRole("superadmin");
         superAdminService.createSuperAdmin(superAdmin);
     }
+
+    @GetMapping(path ="/readsuperadmins")
+    public List<SuperAdmin> getAllSuperAdmins(){
+         return superAdminService.findAll();
+    }
+
+    @DeleteMapping(path = "/deletesuperadmin/{id}")
+    public void deleteSuperAdmin(@PathVariable Integer id){
+        superAdminService.deleteSuperAdmin(id);
+    }
+
+    @PutMapping(path = "/updatesuperadmin/{id}")
+    public void updateSuperAdmin(@RequestBody SuperAdmin superAdmin, @PathVariable Integer id){
+        superAdminService.updateSuperAdmin(superAdmin, id);
+    }
+
+
     
 }
 

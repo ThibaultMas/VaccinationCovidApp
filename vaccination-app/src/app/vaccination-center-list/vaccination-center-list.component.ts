@@ -21,7 +21,6 @@ export class VaccinationCenterListComponent {
   constructor(private service: VaccinationService) {}
 
 
-
   getAllVaccinationCenter(){
     this.service.getAllVaccinationCenter(this.city).subscribe(resultCenters=>{
       this.centers = resultCenters;

@@ -9,8 +9,6 @@ import { VaccinationService } from '../vaccination.service';
   styleUrls: ['./create-vaccination-center.component.scss']
 })
 export class CreateVaccinationCenterComponent {
-
-  usersIcon = faUsers;
   
   center: VaccinationCenter = {
     id: 0,

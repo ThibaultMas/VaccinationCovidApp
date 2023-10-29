@@ -18,4 +18,20 @@ export class UserService {
     return this.http.get<User>("/api/private/auth/userid/"+id);
   }
 
+  getSuperAdmins() : Observable<User[]>{
+    return this.http.get<User[]>("api/private/superadmin/readsuperadmins");
+  }
+
+  deleteSuperAdmin(id: number): Observable<User>{
+    return this.http.delete<User>("/api/private/superadmin/deletesuperadmin/"+id);
+  }
+
+  updateSuperAdmin(id:Number, superAdmin: User) : Observable<User>{
+    return this.http.put<User>("/api/private/superadmin/updatesuperadmin/"+id, superAdmin, {headers: {'Content-Type': 'application/json'}})
+  }
+
+  createSuperAdmin(superAdmin: User): Observable<User>{
+    return this.http.post<User>("/api/private/superadmin/createsuperadmin", superAdmin, {headers: {'Content-Type': 'application/json'}});
+  }
+
 }

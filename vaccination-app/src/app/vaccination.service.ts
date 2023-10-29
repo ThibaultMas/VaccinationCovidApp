@@ -38,4 +38,5 @@ export class VaccinationService {
     return this.http.put<VaccinationCenter>("/api/private/superadmin/updatecenter/"+id, center, {headers: {'Content-Type': 'application/json'}});
   }
 
+
 }

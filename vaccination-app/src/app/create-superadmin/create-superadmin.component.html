@@ -1,0 +1,35 @@
+<div class="component">
+    <form *ngIf="!superAdminCreated">
+        <div class="name">
+            <div class="labelinput">
+                <label for="fname"> Prénom </label>
+                <input id="fname" name="fname" [(ngModel)]="superAdmin.fname" [ngClass]="emptyfname? 'empty' : '' "/>
+            </div> 
+            <div class="labelinput">
+                <label for="lname"> Nom </label>
+                <input id="lname" name="lname" [(ngModel)]="superAdmin.lname" [ngClass]="emptylname? 'empty' : '' "/>
+            </div>
+        </div>
+        <div class="labelinput">
+            <label for="mail"> Email </label>
+            <input id="mail" name="mail" [(ngModel)]="superAdmin.mail" [ngClass]="emptymail? 'empty' : '' "/>
+        </div>
+        <div class="labelinput">
+            <label for="password"> Mot de passe </label>
+            <input type="password" id="password" name="password" [(ngModel)]="superAdmin.password" [ngClass]="emptypassword? 'empty' : '' "/>
+        </div>
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)]="superAdmin.phone" [ngClass]="emptyphone? 'empty' : '' "/>
+        </div>
+        <div class="buttons">
+            <button routerLink="../../configuration"> Annuler </button>
+            <button (click)="createSuperAdmin()"> Valider </button>
+        </div>
+        <span> {{emptymsg}} </span>
+    </form>
+    <div id="created" *ngIf="superAdminCreated">
+        Le super administrateur {{superAdmin.fname}} {{superAdmin.lname}} a bien été créé
+    </div>
+     
+</div>

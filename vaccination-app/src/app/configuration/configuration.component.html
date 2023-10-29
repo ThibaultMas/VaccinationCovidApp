@@ -1,1 +1,23 @@
-<p>configuration works!</p>
+<div class="component">
+
+    <div *ngIf="showModal" class="overlay">
+        <div class="confirm">
+            <p>Êtes-vous sûr de vouloir supprimer ce Super Administrateur ?</p>
+            <div class="confbuttons">
+                <button (click)="confirmDelete()">Confirmer</button>
+                <button (click)="cancelDelete()">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <table>
+        <tr> 
+            <td colspan="3">Super Administrateur <button routerLink="../createsuperadmin"><fa-icon [icon]="plusIcon"></fa-icon></button></td> 
+        </tr>
+        <tr *ngFor="let aSuperAdmin of superadmins"> 
+            <td>{{aSuperAdmin.id}}</td> 
+            <td>{{aSuperAdmin.fname}} {{aSuperAdmin.lname}} </td>
+            <td id="lastcol"> <div class="buttons"><button routerLink="../updatesuperadmin/{{aSuperAdmin.id}}"><fa-icon [icon]="modifyIcon"></fa-icon></button> <button (click)="deleteSuperAdmin(aSuperAdmin)"><fa-icon [icon]="xIcon"></fa-icon></button> </div></td>
+        </tr>
+    </table>
+</div>
