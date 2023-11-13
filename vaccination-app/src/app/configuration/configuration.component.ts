@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../authentification/user';
 import { faPlusCircle, faXmarkCircle, faPen } from '@fortawesome/free-solid-svg-icons';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-configuration',
@@ -19,7 +18,7 @@ export class ConfigurationComponent implements OnInit {
   xIcon = faXmarkCircle;
   modifyIcon = faPen;
 
-  constructor(private service: UserService, private router: Router){}
+  constructor(private service: UserService){}
 
   ngOnInit(): void {
       this.service.getSuperAdmins().subscribe(resultSuperAdmins=>{

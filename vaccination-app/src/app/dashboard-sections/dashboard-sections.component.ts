@@ -7,7 +7,7 @@ import { User } from '../authentification/user';
   styleUrls: ['./dashboard-sections.component.scss']
 })
 export class DashboardSectionsComponent implements OnInit {
-  @Input() user?: User;
+  @Input() user!: User;
 
   constructor() {}
 

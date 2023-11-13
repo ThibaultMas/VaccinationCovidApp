@@ -19,6 +19,11 @@ import { CreateVaccinationCenterComponent } from './create-vaccination-center/cr
 import { UpdateVaccinationCenterComponent } from './update-vaccination-center/update-vaccination-center.component';
 import { UpdateSuperadminComponent } from './update-superadmin/update-superadmin.component';
 import { CreateSuperadminComponent } from './create-superadmin/create-superadmin.component';
+import { VaccinationCenterAdminsdoctorsComponent } from './vaccination-center-adminsdoctors/vaccination-center-adminsdoctors.component';
+import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { CreateSuperadminComponent } from './create-superadmin/create-superadmin
     CreateVaccinationCenterComponent,
     UpdateVaccinationCenterComponent,
     UpdateSuperadminComponent,
-    CreateSuperadminComponent
+    CreateSuperadminComponent,
+    VaccinationCenterAdminsdoctorsComponent,
+    CreateAdminComponent,
+    CreateDoctorComponent,
+    UpdateAdminComponent,
+    UpdateDoctorComponent
   ],
   imports: [
     BrowserModule,

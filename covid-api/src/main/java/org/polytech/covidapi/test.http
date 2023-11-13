@@ -15,7 +15,7 @@ Content-Type: application/json
 POST http://localhost:8080/api/private/superadmin/createcenter
 Content-Type: application/json
 
-{   "name" : "Salle des sports",
+{   "name" : "test des sports",
     "city" : "Dombasle sur Meurthe",
     "address" : "115 avenue du Général Leclerc",
     "postal" : "54110",
@@ -80,7 +80,7 @@ GET http://localhost:8080/api/private/superadmin/readadmins
 DELETE  http://localhost:8080/api/private/superadmin/deleteadmin/2
 
 ###
-PUT  http://localhost:8080/api/private/superadmin/updateadmin/1
+PUT  http://localhost:8080/api/private/superadmin/updateadmin/2/2
 Content-Type: application/json
 
 {   
@@ -93,6 +93,9 @@ Content-Type: application/json
 
 ###
 GET http://localhost:8080/api/private/admin/readpatients/1
+
+###
+GET http://localhost:8080/api/private/admin/admincenter/2
 
 ###
 DELETE http://localhost:8080/api/private/admin/deletepatient/1/2

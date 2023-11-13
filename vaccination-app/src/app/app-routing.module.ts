@@ -11,6 +11,12 @@ import { UpdateVaccinationCenterComponent } from './update-vaccination-center/up
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { UpdateSuperadminComponent } from './update-superadmin/update-superadmin.component';
 import { CreateSuperadminComponent } from './create-superadmin/create-superadmin.component';
+import { VaccinationCenterAdminsdoctorsComponent } from './vaccination-center-adminsdoctors/vaccination-center-adminsdoctors.component';
+import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
+import { MycenterDashboardComponent } from './mycenter-dashboard/mycenter-dashboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "/centers", pathMatch:'full'},
@@ -20,11 +26,17 @@ const routes: Routes = [
   {path: "authentification", component: AuthentificationComponent},
   {path: "userdashboard/:id", component: UserDashboardComponent,
     children: [{path: "sadmincenters", component: VaccinationCentersDashboardComponent},
-               {path: "updatecenter/:id", component: UpdateVaccinationCenterComponent},
+               {path: "updatecenter/:centerid", component: UpdateVaccinationCenterComponent},
+               {path: "centeradminsdoctors/:centerid", component: VaccinationCenterAdminsdoctorsComponent},
                {path: "createcenter", component: CreateVaccinationCenterComponent},
                {path: "configuration", component: ConfigurationComponent},
                {path: "updatesuperadmin/:id", component: UpdateSuperadminComponent},
-               {path: "createsuperadmin", component: CreateSuperadminComponent}]}
+               {path: "createsuperadmin", component: CreateSuperadminComponent},
+               {path: "createadmin/:centerid", component: CreateAdminComponent},
+               {path: "updateadmin/:id/:centerid", component: UpdateAdminComponent},
+               {path: "createdoctor/:centerid", component: CreateDoctorComponent},
+               {path: "updatedoctor/:id/:centerid", component:UpdateDoctorComponent},
+               {path:"admincenter/:id", component:MycenterDashboardComponent}]}
 ];
 
 @NgModule({

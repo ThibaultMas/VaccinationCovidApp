@@ -71,4 +71,9 @@ public class AdminController {
         return doctorService.findAllByCenterId(center_id);
     }
 
+    @GetMapping(path= "/admincenter/{id}")
+        public VaccinationCenter getAdminCenter(@PathVariable Integer id){
+            return adminService.getAdminCenter(id);
+        }
+
 }

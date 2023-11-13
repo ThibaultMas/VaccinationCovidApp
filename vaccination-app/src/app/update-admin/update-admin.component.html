@@ -1,0 +1,44 @@
+<div class="component" *ngIf="admin">
+    <form *ngIf="!adminUpdated">
+        <div class="name">
+            <div class="labelinput">
+                <label for="fname"> Prénom </label>
+                <input id="fname" name="fname" [(ngModel)]="admin.fname"/>
+            </div> 
+            <div class="labelinput">
+                <label for="lname"> Nom </label>
+                <input id="lname" name="lname" [(ngModel)]="admin.lname"/>
+            </div>
+        </div>
+        <div class="labelinput">
+            <label for="mail"> Email </label>
+            <input id="mail" name="mail" [(ngModel)]="admin.mail"/>
+        </div>
+        <div class="labelinput">
+            <label for="password"> Mot de passe </label>
+            <input type="password" id="password" name="password" [(ngModel)]="admin.password"/>
+        </div>
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)]="admin.phone"/>
+        </div>
+        <div class="labelselect">
+            <label for="centre"> Centre de ratachement </label>
+            <select name="centre" id="centre" [(ngModel)]="selectedCenter">
+                <option disabled selected [ngValue]="undefined" > {{center.name}} </option>
+                <option *ngFor="let aCenter of centers" [ngValue]="aCenter"> {{aCenter.name}} </option>
+            </select>
+        </div>
+        <div class="buttons">
+            <button routerLink="../../../centeradminsdoctors/{{center.id}}"> Annuler </button>
+            <button (click)="updateAdmin()"> Valider </button>
+        </div>
+
+    </form>
+    <div id="created" *ngIf="adminUpdated">
+        Les informations de l'administrateur {{admin.fname}} {{admin.lname}} ont bien été mises à jour
+    </div>
+     
+</div>
+
+

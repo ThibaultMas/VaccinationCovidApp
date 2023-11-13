@@ -1,0 +1,43 @@
+<div class="component">
+    <form *ngIf="!AdminCreated">
+        <div class="name">
+            <div class="labelinput">
+                <label for="fname"> Prénom </label>
+                <input id="fname" name="fname" [(ngModel)]="admin.fname" [ngClass]="emptyfname? 'empty' : '' "/>
+            </div> 
+            <div class="labelinput">
+                <label for="lname"> Nom </label>
+                <input id="lname" name="lname" [(ngModel)]="admin.lname" [ngClass]="emptylname? 'empty' : '' "/>
+            </div>
+        </div>
+        <div class="labelinput">
+            <label for="mail"> Email </label>
+            <input id="mail" name="mail" [(ngModel)]="admin.mail" [ngClass]="emptymail? 'empty' : '' "/>
+        </div>
+        <div class="labelinput">
+            <label for="password"> Mot de passe </label>
+            <input type="password" id="password" name="password" [(ngModel)]="admin.password" [ngClass]="emptypassword? 'empty' : '' "/>
+        </div>
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)]="admin.phone" [ngClass]="emptyphone? 'empty' : '' "/>
+        </div>
+        <div class="labelselect">
+            <label for="centre"> Centre de ratachement </label>
+            <select name="centre" id="centre" [(ngModel)]="selectedCenter" [ngClass]="emptycenter? 'empty' : '' ">
+                <option [ngValue]="undefined"> Choisissez le centre de ratachement</option>
+                <option *ngFor="let aCenter of centers" [ngValue]="aCenter"> {{aCenter.name}} </option>
+            </select>
+        </div>
+        <div class="buttons">
+            <button routerLink="../../sadmincenters"> Annuler </button>
+            <button (click)="createAdmin()"> Valider </button>
+        </div>
+        <span> {{emptymsg}} </span>
+    </form>
+    <div id="created" *ngIf="AdminCreated">
+        L'administrateur {{admin.fname}} {{admin.lname}} a bien été créé
+    </div>
+     
+</div>
+

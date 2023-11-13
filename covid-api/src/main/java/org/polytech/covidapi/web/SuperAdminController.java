@@ -3,10 +3,12 @@ package org.polytech.covidapi.web;
 import java.util.List;
 
 import org.polytech.covidapi.domain.Admin;
+import org.polytech.covidapi.domain.Doctor;
 import org.polytech.covidapi.domain.SuperAdmin;
 import org.polytech.covidapi.domain.VaccinationCenter;
 import org.polytech.covidapi.repository.VaccinationCenterRepository;
 import org.polytech.covidapi.service.AdminService;
+import org.polytech.covidapi.service.DoctorService;
 import org.polytech.covidapi.service.SuperAdminService;
 import org.polytech.covidapi.service.VaccinationCenterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,8 @@ public class SuperAdminController {
     private AdminService adminService;
     @Autowired
     private SuperAdminService superAdminService;
+    @Autowired
+    private DoctorService doctorService;
 
     //Gestion des centres de vaccination (CRUD)
 
@@ -66,6 +70,11 @@ public class SuperAdminController {
         return adminService.findAllByLName(lname);
     }
 
+    @GetMapping(path ="/readadmins/{center_id}")
+    public List<Admin> getCenterAdmins(@PathVariable Integer center_id){
+       return adminService.findAllByCenterId(center_id);
+    }
+
     @PostMapping(path = "/createadmin/{center_id}", consumes = {"application/json"})
     public void createAdmin(@RequestBody Admin admin, @PathVariable Integer center_id){
         VaccinationCenter center = centerRepository.findOneById(center_id);
@@ -79,11 +88,37 @@ public class SuperAdminController {
         adminService.deleteAdmin(id);
     }
 
-    @PutMapping(path = "/updateadmin/{id}")
-    public void updateAdmin(@RequestBody Admin admin, @PathVariable Integer id){
-        adminService.updateAdmin(admin, id);
+    @PutMapping(path = "/updateadmin/{id}/{center_id}")
+    public void updateAdmin(@RequestBody Admin admin, @PathVariable Integer id, @PathVariable Integer center_id){
+        adminService.updateAdmin(admin, id, center_id);
     }
-    
+
+    //Gestion des médecins des centres
+
+    @GetMapping(path ="/readdoctors/{center_id}")
+    public List<Doctor> getCenterDoctors(@PathVariable Integer center_id){
+       return doctorService.findAllByCenterId(center_id);
+    }
+
+    @PostMapping(path = "/createdoctor/{center_id}", consumes = {"application/json"})
+    public void createDoctor(@RequestBody Doctor doctor, @PathVariable Integer center_id){
+        VaccinationCenter center = centerRepository.findOneById(center_id);
+        doctor.setCenter(center);
+        doctor.setRole("doctor");
+        doctorService.createDoctor(doctor);
+    }
+
+    @DeleteMapping(path = "/deletedoctor/{id}")
+    public void deleteDoctor(@PathVariable Integer id){
+        doctorService.deleteDoctor(id);
+    }
+
+    @PutMapping(path = "/updatedoctor/{id}/{center_id}")
+    public void updateDoctor(@RequestBody Doctor doctor, @PathVariable Integer id, @PathVariable Integer center_id){
+        doctorService.updateDoctor(doctor, id, center_id);
+    }
+
+
     // Gestion des Super Admins
 
     @PostMapping(path = "/createsuperadmin", consumes = {"application/json"})

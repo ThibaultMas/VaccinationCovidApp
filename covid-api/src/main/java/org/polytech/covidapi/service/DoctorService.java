@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.polytech.covidapi.domain.Admin;
 import org.polytech.covidapi.domain.Doctor;
+import org.polytech.covidapi.domain.VaccinationCenter;
 import org.polytech.covidapi.repository.AdminRepository;
 import org.polytech.covidapi.repository.DoctorRepository;
+import org.polytech.covidapi.repository.VaccinationCenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ public class DoctorService {
     private DoctorRepository doctorRepository;
     @Autowired
     private AdminRepository adminRepository;
+    @Autowired
+    private VaccinationCenterRepository centerRepository;
 
     public void createDoctor(Doctor doctor){
         doctorRepository.save(doctor);
@@ -26,13 +30,15 @@ public class DoctorService {
         doctorRepository.delete(doctor);
     }
     
-    public void updateDoctor(Doctor doctor, Integer id){
+    public void updateDoctor(Doctor doctor, Integer id, Integer center_id){
         Doctor doctordb = doctorRepository.findOneById(id);
+        VaccinationCenter center = centerRepository.findOneById(center_id);
         doctordb.setFname(doctor.getFname());
         doctordb.setLname(doctor.getLname());
         doctordb.setMail(doctor.getMail());
         doctordb.setPassword(doctor.getPassword());
         doctordb.setPhone(doctor.getPhone());
+        doctordb.setCenter(center);
         doctorRepository.save(doctordb);
     }
 
@@ -55,5 +61,6 @@ public class DoctorService {
         }
         return Collections.emptyList();
     }
+
 
 }

@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Integer> {
     public List<Admin> findAllBylname(String lname);
+    public List<Admin> findAllBycenter_id(Integer center_id);
     public Admin findOneById(Integer admin_id);
 }

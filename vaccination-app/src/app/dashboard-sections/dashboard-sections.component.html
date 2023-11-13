@@ -1,6 +1,6 @@
 <div class="options">
     <button [disabled]="!hasRole('superadmin')" routerLink="./sadmincenters"> Centres </button>
-    <button [disabled]="!hasRole('admin')"> Mon centre </button>
+    <button [disabled]="!hasRole('admin')" routerLink="./admincenter/{{user.id}}"> Mon centre </button>
     <button [disabled]="hasRole('superadmin')"> Planning </button>
     <button [disabled]="!hasRole('superadmin')" routerLink="./configuration"> Config. </button>
 </div>

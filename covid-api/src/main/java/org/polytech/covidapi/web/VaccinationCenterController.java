@@ -30,6 +30,7 @@ public class VaccinationCenterController {
         }
     
     
+    
     @PostMapping(path = "/api/public/createcenter", consumes = {"application/json"})
         public void createCenter(@RequestBody VaccinationCenter center){
             centerService.createCenter(center);

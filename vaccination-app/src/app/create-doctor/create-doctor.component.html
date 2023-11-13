@@ -1,0 +1,44 @@
+<div class="component">
+    <form *ngIf="!DoctorCreated">
+        <div class="name">
+            <div class="labelinput">
+                <label for="fname"> Prénom </label>
+                <input id="fname" name="fname" [(ngModel)]="doctor.fname" [ngClass]="emptyfname? 'empty' : '' "/>
+            </div> 
+            <div class="labelinput">
+                <label for="lname"> Nom </label>
+                <input id="lname" name="lname" [(ngModel)]="doctor.lname" [ngClass]="emptylname? 'empty' : '' "/>
+            </div>
+        </div>
+        <div class="labelinput">
+            <label for="mail"> Email </label>
+            <input id="mail" name="mail" [(ngModel)]="doctor.mail" [ngClass]="emptymail? 'empty' : '' "/>
+        </div>
+        <div class="labelinput">
+            <label for="password"> Mot de passe </label>
+            <input type="password" id="password" name="password" [(ngModel)]="doctor.password" [ngClass]="emptypassword? 'empty' : '' "/>
+        </div>
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)]="doctor.phone" [ngClass]="emptyphone? 'empty' : '' "/>
+        </div>
+        <div class="labelselect">
+            <label for="centre"> Centre de ratachement </label>
+            <select name="centre" id="centre" [(ngModel)]="selectedCenter" [ngClass]="emptycenter? 'empty' : '' ">
+                <option [ngValue]="undefined"> Choisissez le centre de ratachement</option>
+                <option *ngFor="let aCenter of centers" [ngValue]="aCenter"> {{aCenter.name}} </option>
+            </select>
+        </div>
+        <div class="buttons">
+            <button routerLink="../../sadmincenters"> Annuler </button>
+            <button (click)="createDoctor()"> Valider </button>
+        </div>
+        <span> {{emptymsg}} </span>
+    </form>
+    <div id="created" *ngIf="DoctorCreated">
+        Le docteur {{doctor.fname}} {{doctor.lname}} a bien été créé
+    </div>
+     
+</div>
+
+

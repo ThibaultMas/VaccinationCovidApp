@@ -1,0 +1,45 @@
+<div class="component" *ngIf="doctor">
+    <form *ngIf="!doctorUpdated">
+        <div class="name">
+            <div class="labelinput">
+                <label for="fname"> Prénom </label>
+                <input id="fname" name="fname" [(ngModel)]="doctor.fname"/>
+            </div> 
+            <div class="labelinput">
+                <label for="lname"> Nom </label>
+                <input id="lname" name="lname" [(ngModel)]="doctor.lname"/>
+            </div>
+        </div>
+        <div class="labelinput">
+            <label for="mail"> Email </label>
+            <input id="mail" name="mail" [(ngModel)]="doctor.mail"/>
+        </div>
+        <div class="labelinput">
+            <label for="password"> Mot de passe </label>
+            <input type="password" id="password" name="password" [(ngModel)]="doctor.password"/>
+        </div>
+        <div class="labelinput">
+            <label for="phone"> Téléphone </label>
+            <input id="phone" name="phone" [(ngModel)]="doctor.phone"/>
+        </div>
+        <div class="labelselect">
+            <label for="centre"> Centre de ratachement </label>
+            <select name="centre" id="centre" [(ngModel)]="selectedCenter">
+                <option disabled selected [ngValue]="undefined" > {{center.name}} </option>
+                <option *ngFor="let aCenter of centers" [ngValue]="aCenter"> {{aCenter.name}} </option>
+            </select>
+        </div>
+        <div class="buttons">
+            <button routerLink="../../../centeradminsdoctors/{{center.id}}"> Annuler </button>
+            <button (click)="updateDoctor()"> Valider </button>
+        </div>
+
+    </form>
+    <div id="created" *ngIf="doctorUpdated">
+        Les informations du docteur {{doctor.fname}} {{doctor.lname}} ont bien été mises à jour
+    </div>
+     
+</div>
+
+
+
