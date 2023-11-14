@@ -4,6 +4,7 @@ import { User } from '../authentification/user';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { VaccinationService } from '../vaccination.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-doctor',
@@ -34,7 +35,7 @@ export class CreateDoctorComponent implements OnInit{
   emptymsg?: string;
   DoctorCreated = false;
 
-  constructor(private route:ActivatedRoute, private userService: UserService, private centerService: VaccinationService){}
+  constructor(private route:ActivatedRoute, private location: Location, private userService: UserService, private centerService: VaccinationService){}
 
   ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get("centerid"));
@@ -46,6 +47,10 @@ export class CreateDoctorComponent implements OnInit{
         this.centers = resultCenters;
       })
       
+  }
+
+  cancelDoctorCreate(){
+    this.location.back();
   }
 
   createDoctor(){

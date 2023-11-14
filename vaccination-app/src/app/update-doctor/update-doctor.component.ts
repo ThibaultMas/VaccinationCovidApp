@@ -4,6 +4,7 @@ import { User } from '../authentification/user';
 import { VaccinationService } from '../vaccination.service';
 import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-update-doctor',
@@ -20,7 +21,7 @@ export class UpdateDoctorComponent implements OnInit{
   
   doctorUpdated = false;
 
-  constructor(private route:ActivatedRoute, private centerService: VaccinationService, private userService: UserService){}
+  constructor(private route:ActivatedRoute,private location: Location, private centerService: VaccinationService, private userService: UserService){}
 
   ngOnInit(): void {
       const center_id = Number(this.route.snapshot.paramMap.get("centerid"));
@@ -46,5 +47,9 @@ export class UpdateDoctorComponent implements OnInit{
       this.userService.updateDoctor(this.doctor.id, this.selectedCenter.id, this.doctor).subscribe()
       this.doctorUpdated = true;
     }
+  }
+
+  cancelDoctorUpdate(){
+    this.location.back();
   }
 }

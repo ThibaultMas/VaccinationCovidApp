@@ -5,6 +5,7 @@ import { VaccinationCenter } from '../vaccination-center-list/vaccination-center
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { VaccinationService } from '../vaccination.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-mycenter-dashboard',
@@ -38,4 +39,20 @@ export class MycenterDashboardComponent implements OnInit{
         })
         
     }
+
+    deleteDoctor(aDoctor: User){
+      this.selected = aDoctor;
+      this.showModal = true;
+    }
+
+    cancelDoctorDelete(){
+      this.showModal = false;
+    }
+
+    confirmDoctorDelete(){
+      this.userService.deleteDoctor(this.selected!.id).subscribe();
+      this.doctors?.splice(this.doctors.indexOf(this.selected!), 1);
+      this.showModal=false
+    }
+
 }

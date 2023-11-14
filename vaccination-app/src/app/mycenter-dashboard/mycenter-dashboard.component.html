@@ -1,2 +1,27 @@
-<p>mycenter-dashboard works!</p>
-<span> {{center?.name}} </span>
+<div class="component" *ngIf="center">
+    <div class="details">
+        <span> {{center.name}}</span><br/>
+        <span> {{center.address}} {{center.postal}}, {{center.city}} </span>
+    </div>
+
+    <div *ngIf="showModal" class="overlay">
+        <div class="confirm">
+            <p>Êtes-vous sûr de vouloir supprimer ce Docteur ?</p>
+            <div class="confbuttons">
+                <button (click)="confirmDoctorDelete()">Confirmer</button>
+                <button (click)="cancelDoctorDelete()">Annuler</button>
+            </div>
+        </div>
+    </div>
+    
+    <table>
+        <tr> 
+            <td colspan="3"> Docteurs <button routerLink="../../createdoctor/{{center.id}}"><fa-icon [icon]="plusIcon"></fa-icon></button></td> 
+        </tr>
+        <tr *ngFor="let aDoctor of doctors"> 
+            <td>{{aDoctor.id}}</td> 
+            <td>{{aDoctor.fname}} {{aDoctor.lname}} </td>
+            <td id="lastcol"> <div class="buttons"><button routerLink="../../updatedoctor/{{aDoctor.id}}/{{center.id}}" ><fa-icon [icon]="modifyIcon"></fa-icon></button> <button (click)="deleteDoctor(aDoctor)"><fa-icon [icon]="xIcon"></fa-icon></button> </div></td>
+        </tr>
+    </table>
+</div>

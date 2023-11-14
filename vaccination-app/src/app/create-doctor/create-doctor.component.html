@@ -30,7 +30,7 @@
             </select>
         </div>
         <div class="buttons">
-            <button routerLink="../../sadmincenters"> Annuler </button>
+            <button (click)="cancelDoctorCreate()"> Annuler </button>
             <button (click)="createDoctor()"> Valider </button>
         </div>
         <span> {{emptymsg}} </span>
