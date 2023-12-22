@@ -34,6 +34,11 @@ public class PatientController {
         return centerService.findAllByCityIgnoreCaseContaining(city);
     }
 
+    @GetMapping(path = "/center/{id}")
+    public VaccinationCenter getCenterById(@PathVariable Integer id){
+        return centerService.findOneById(id);
+    }
+
     @PostMapping(path = "/pregister/{id}", consumes = {"application/json"})
         public void register(@PathVariable Integer id, @RequestBody Patient patient){
             VaccinationCenter center = centerRepository.findOneById(id);

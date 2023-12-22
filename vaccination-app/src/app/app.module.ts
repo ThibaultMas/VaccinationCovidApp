@@ -24,6 +24,12 @@ import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
 import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -53,9 +59,15 @@ import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    CommonModule
+
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './authentification/user';
 import { VaccinationCenter } from './vaccination-center-list/vaccination-center';
+import { Booking } from './vaccination-center/booking';
 
 @Injectable({
   providedIn: 'root'

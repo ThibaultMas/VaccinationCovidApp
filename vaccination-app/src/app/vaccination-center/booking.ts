@@ -5,4 +5,5 @@ export interface Booking {
     mail: string;
     phone: string;
     registration_date: string;
+    vaccinated: boolean;
 }

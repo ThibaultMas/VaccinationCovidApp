@@ -17,6 +17,7 @@ import { CreateDoctorComponent } from './create-doctor/create-doctor.component';
 import { UpdateAdminComponent } from './update-admin/update-admin.component';
 import { UpdateDoctorComponent } from './update-doctor/update-doctor.component';
 import { MycenterDashboardComponent } from './mycenter-dashboard/mycenter-dashboard.component';
+import { PlanningComponent } from './planning/planning.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "/centers", pathMatch:'full'},
@@ -36,7 +37,8 @@ const routes: Routes = [
                {path: "updateadmin/:id/:centerid", component: UpdateAdminComponent},
                {path: "createdoctor/:centerid", component: CreateDoctorComponent},
                {path: "updatedoctor/:id/:centerid", component:UpdateDoctorComponent},
-               {path:"admincenter/:id", component:MycenterDashboardComponent}]}
+               {path: "admincenter/:id", component:MycenterDashboardComponent},
+               {path: "planning/:id", component:PlanningComponent}]}
 ];
 
 @NgModule({

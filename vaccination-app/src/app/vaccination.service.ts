@@ -24,11 +24,22 @@ export class VaccinationService {
 
 
   getCenterById(center_id: Number): Observable<VaccinationCenter> {
-    return this.http.get<VaccinationCenter>("/api/public/center/"+center_id);
+    return this.http.get<VaccinationCenter>("/api/public/patient/center/"+center_id);
   }
 
   createBooking(center_id:Number, booking:Booking) : Observable<Booking>{
     return this.http.post<Booking>("/api/public/patient/pregister/"+center_id, booking, {headers: {'Content-Type': 'application/json'}});
+  }
+
+  getBookingByCenter(center_id: Number, patient_lname?: string) : Observable<Booking[]>{
+    let params: { [key: string]: string} = {};
+    if(patient_lname){
+      params['lname'] = patient_lname;
+    }
+
+    return this.http.get<Booking[]>("/api/private/readpatients/"+center_id, {
+      params:params
+    });
   }
 
   createCenter(center:VaccinationCenter) : Observable<VaccinationCenter>{
@@ -51,5 +62,12 @@ export class VaccinationService {
     return this.http.get<VaccinationCenter>("/api/private/admin/admincenter/"+admin_id);
   }
 
+  getDoctorCenter(doctor_id: Number) : Observable<VaccinationCenter>{
+    return this.http.get<VaccinationCenter>("/api/private/doctor/doctorcenter/"+doctor_id);
+  }
+
+  updatePatient(id:Number, booking:Booking): Observable<Booking>{
+    return this.http.put<Booking>("/api/private/doctor/updatepatientstatus/"+id, booking, {headers: {'Content-Type': 'application/json'}});
+  }
 
 }

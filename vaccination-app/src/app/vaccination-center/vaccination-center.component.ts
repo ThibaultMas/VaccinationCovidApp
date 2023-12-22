@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VaccinationService } from '../vaccination.service';
 import { Booking } from './booking';
 import { VaccinationCenter } from '../vaccination-center-list/vaccination-center';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-vaccination-center',
   templateUrl: './vaccination-center.component.html',
-  styleUrls: ['./vaccination-center.component.scss']
+  styleUrls: ['./vaccination-center.component.scss'],
+  providers: [DatePipe]
 })
 export class VaccinationCenterComponent implements OnInit {
 
@@ -20,7 +22,8 @@ export class VaccinationCenterComponent implements OnInit {
     lname: '',
     mail: '',
     phone: '',
-    registration_date: ''
+    registration_date: '',
+    vaccinated: false
   };
 
   emptyfname?: boolean;
@@ -30,7 +33,7 @@ export class VaccinationCenterComponent implements OnInit {
   emptydate?: boolean;
   emptymsg?: string;
 
-  constructor(private route: ActivatedRoute, private vaccinationService: VaccinationService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private vaccinationService: VaccinationService, private router: Router, private datePipe: DatePipe) {}
 
   ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get("id"));
@@ -49,9 +52,17 @@ export class VaccinationCenterComponent implements OnInit {
     this.deleted.emit(this.center);
   }
 
+  formatDate() {
+    if (this.booking.registration_date != "") {
+      this.booking.registration_date = this.datePipe.transform(this.booking.registration_date, 'dd/MM/yyyy') || '';
+    }
+  }
+  
+
   saveBooking(){
     if(this.center){
       if(this.booking.fname != "" && this.booking.lname != "" && this.booking.mail != "" && this.booking.phone != "" && this.booking.registration_date != ""){
+        this.formatDate();
         this.vaccinationService.createBooking(this.center.id, this.booking).subscribe();
         this.router.navigate(['registered'])
       }

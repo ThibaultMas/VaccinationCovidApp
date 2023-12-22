@@ -28,9 +28,10 @@
             <input id="phone" name="phone" [(ngModel)] = "booking.phone" [ngClass]="emptyphone? 'empty' : ''"/>
         </div>
         <div class="button">
+        
         <div class="labelinput">
             <label for="date"> Date du rendez-vous </label>
-            <input type="date" id="date" name="date" [(ngModel)] = "booking.registration_date" [ngClass]="emptydate? 'empty' : ''" value="yyyy-mm-dd"/>
+            <input type="date" id="date" name="date" [(ngModel)] = "booking.registration_date" [ngClass]="emptydate? 'empty' : ''" />
         </div>
             <button (click)="saveBooking()">Réserver</button>
         </div>

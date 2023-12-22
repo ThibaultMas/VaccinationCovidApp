@@ -33,15 +33,6 @@ public class AdminController {
 
     //Gestion des patients du centre de vaccination de l'admin (RD)
     
-    @GetMapping(path ="/readpatients/{admin_id}")
-    public List<Patient> getAllPatients(@PathVariable Integer admin_id){
-         Admin admin= adminService.findOneById(admin_id);
-         VaccinationCenter center = admin.getCenter();
-         Integer center_id = center.getId();
-
-         return patientService.findAllByCenterId(center_id);
-
-    }
 
     @DeleteMapping(path = "/deletepatient/{admin_id}/{patient_id}")
     public void deletePatient(@PathVariable Integer admin_id, @PathVariable Integer patient_id){

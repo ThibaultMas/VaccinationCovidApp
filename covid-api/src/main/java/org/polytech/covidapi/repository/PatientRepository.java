@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
     public List<Patient> findAllBylname(String lname);
     public List<Patient> findAllBycenter_id(Integer center_id);
-    public List<Patient> findAllBycenter_idAndLname(Integer center_id, String lname);
+    public List<Patient> findAllBycenter_idAndLnameIgnoreCaseContaining(Integer center_id, String lname);
     public Patient findOneById(Integer id);
 }

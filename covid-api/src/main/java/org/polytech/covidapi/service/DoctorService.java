@@ -1,12 +1,9 @@
 package org.polytech.covidapi.service;
 
-import java.util.Collections;
 import java.util.List;
 
-import org.polytech.covidapi.domain.Admin;
 import org.polytech.covidapi.domain.Doctor;
 import org.polytech.covidapi.domain.VaccinationCenter;
-import org.polytech.covidapi.repository.AdminRepository;
 import org.polytech.covidapi.repository.DoctorRepository;
 import org.polytech.covidapi.repository.VaccinationCenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +13,6 @@ import org.springframework.stereotype.Service;
 public class DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
-    @Autowired
-    private AdminRepository adminRepository;
     @Autowired
     private VaccinationCenterRepository centerRepository;
 
@@ -54,12 +49,13 @@ public class DoctorService {
         return doctorRepository.findAllBycenter_id(center_id);
     }
 
-    public List<Doctor> getAdminDoctors(Integer admin_id){
-        Admin admin = adminRepository.findOneById(admin_id);
-        if(admin.getCenter() != null){
-            return admin.getCenter().getDoctors();
+    public VaccinationCenter getDoctorCenter(Integer doctor_id){
+        Doctor doctor = doctorRepository.findOneById(doctor_id);
+        if(doctor.getCenter() != null){
+            return doctor.getCenter();
         }
-        return Collections.emptyList();
+        
+        return null;
     }
 
 

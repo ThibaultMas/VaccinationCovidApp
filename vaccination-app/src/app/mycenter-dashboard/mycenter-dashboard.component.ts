@@ -5,7 +5,6 @@ import { VaccinationCenter } from '../vaccination-center-list/vaccination-center
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { VaccinationService } from '../vaccination.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-mycenter-dashboard',

@@ -1,8 +1,5 @@
 package org.polytech.covidapi.web;
 
-import java.util.List;
-
-import org.polytech.covidapi.domain.Doctor;
 import org.polytech.covidapi.domain.Patient;
 import org.polytech.covidapi.domain.VaccinationCenter;
 import org.polytech.covidapi.service.DoctorService;
@@ -11,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,20 +17,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class DoctorController {
     @Autowired
-    private DoctorService doctorService;
-    @Autowired
     private PatientService patientService;
+    @Autowired
+    private DoctorService doctorService;
 
-    @GetMapping(path = "/readpatients/{doctor_id}/{patient_lname}")
-    public List<Patient> getPatientsByName(@PathVariable Integer doctor_id, @PathVariable String patient_lname){
-        Doctor doctor = doctorService.findOneById(doctor_id);
-        VaccinationCenter center = doctor.getCenter();
-        Integer center_id = center.getId();
-        return patientService.findAllByCenterIdAndLName(center_id, patient_lname);
+    @PutMapping(path = "/updatepatientstatus/{id}")
+    public void updateDoctor(@RequestBody Patient patient, @PathVariable Integer id){
+        patientService.updatePatient(patient, id);
     }
 
-    @PutMapping(path = "/updatepatientstatus/{id}/{vaccinated}")
-    public void updatePatient(@PathVariable Integer id, @PathVariable boolean vaccinated){
-        patientService.updatePatient(id, vaccinated);
-    }
+    @GetMapping(path= "/doctorcenter/{id}")
+        public VaccinationCenter getDoctorCenter(@PathVariable Integer id){
+            return doctorService.getDoctorCenter(id);
+        }
 }

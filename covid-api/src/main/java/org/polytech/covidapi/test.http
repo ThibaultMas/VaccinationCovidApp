@@ -26,6 +26,10 @@ Content-Type: application/json
 GET http://localhost:8080/api/public/patient/readcenters?city=Na
 
 ###
+
+GET http://localhost:8080/api/public/patient/center/1
+
+###
 GET http://localhost:8080/api/public/patient/readcenters
 
 ###
@@ -69,7 +73,7 @@ Content-Type: application/json
     "lname" : "Masson",
     "mail" : "exemple.random@exe.fr",
     "phone" : "0645783409",
-    "registration_date" : "2023-07-12"
+    "registration_date" : "22/12/2023"
     
 }
 
@@ -92,7 +96,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/private/admin/readpatients/1
+GET http://localhost:8080/api/private/readpatients/1?lname=Mas
 
 ###
 GET http://localhost:8080/api/private/admin/admincenter/2
@@ -120,3 +124,6 @@ GET http://localhost:8080/api/private/doctor/readpatients/1/Masson
 
 ###
 PUT http://localhost:8080/api/private/doctor/updatepatientstatus/1/true
+
+###
+GET http://localhost:8080/api/private/admin/admincenter/1

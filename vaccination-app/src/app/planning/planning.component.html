@@ -1,1 +1,28 @@
-<p>planning works!</p>
+<div class="component" *ngIf="center">
+    <div class="details">
+        <span> {{center.name}}</span><br/>
+        <span> {{center.address}} {{center.postal}}, {{center.city}} </span>
+    </div>
+    <div class="searchpatients">
+        <input [(ngModel)]="patient_lname" placeholder="Nom de famille du patient"/>
+        <button (click)="getPatients()"><fa-icon [icon]="searchIcon"> </fa-icon></button>
+    </div>
+
+    <div class="labelinput">
+        <label for="date"> Date de réservation </label>
+        <div class="inputdate">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">
+            <mat-datepicker-toggle matSuffix [for]="picker" class="button"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </div>
+    </div>
+
+    <table>
+        <tr class="date"> 
+            <td> Réservations du {{ selectedDate | date:'dd/MM/yyyy' }} </td>
+        </tr>
+        <tr *ngFor="let aPatient of patients"> 
+            <td class="patient"> <span>{{aPatient.fname}} {{aPatient.lname}}</span> <button class="valider" *ngIf="!aPatient.vaccinated" (click)="updatePatient(aPatient)"> Valider </button> <button *ngIf="aPatient.vaccinated" (click)="updatePatient(aPatient)"> <fa-icon [icon]="checkIcon"></fa-icon> </button></td> 
+        </tr>
+    </table>
+</div>

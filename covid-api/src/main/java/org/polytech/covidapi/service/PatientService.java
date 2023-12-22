@@ -29,9 +29,9 @@ public class PatientService {
         patientRepository.delete(patient);
     }
 
-    public void updatePatient(Integer id, boolean vaccinated){
+    public void updatePatient(Patient patient, Integer id){
         Patient patientdb = patientRepository.findOneById(id);
-        patientdb.setVaccinated(vaccinated);
+        patientdb.setVaccinated(patient.getVaccinated());
         patientRepository.save(patientdb);
     }
 
@@ -43,8 +43,8 @@ public class PatientService {
         return patientRepository.findAllBycenter_id(center_id);
     }
 
-    public List<Patient> findAllByCenterIdAndLName(Integer center_id, String lname){
-        return patientRepository.findAllBycenter_idAndLname(center_id, lname);
+    public List<Patient> findAllByCenterIdAndLNameIgnoreCaseContaining(Integer center_id, String lname){
+        return patientRepository.findAllBycenter_idAndLnameIgnoreCaseContaining(center_id, lname);
     }
 
     public List<Patient> findAll(){

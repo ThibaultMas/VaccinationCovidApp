@@ -44,7 +44,7 @@ export class UpdateDoctorComponent implements OnInit{
 
   updateDoctor(){
     if(this.doctor){
-      this.userService.updateDoctor(this.doctor.id, this.selectedCenter.id, this.doctor).subscribe()
+      this.userService.updateDoctor(this.doctor.id, this.selectedCenter.id, this.doctor).subscribe();
       this.doctorUpdated = true;
     }
   }
