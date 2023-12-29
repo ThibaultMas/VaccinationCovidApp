@@ -13,15 +13,15 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserByMail(mail: string): Observable<User>{
-    return this.http.get<User>("/api/private/auth/usermail/"+mail);
+    return this.http.get<User>("/api/public/auth/usermail/"+mail);
   }
 
   getUserById(id: number): Observable<User>{
-    return this.http.get<User>("/api/private/auth/userid/"+id);
+    return this.http.get<User>("/api/public/auth/userid/"+id);
   }
 
   getSuperAdmins() : Observable<User[]>{
-    return this.http.get<User[]>("api/private/superadmin/readsuperadmins");
+    return this.http.get<User[]>("/api/private/superadmin/readsuperadmins");
   }
 
   deleteSuperAdmin(id: number): Observable<User>{
@@ -61,7 +61,7 @@ export class UserService {
   }
 
   getDoctorsByAdminId(id: Number) : Observable<User[]>{
-    return this.http.get<User[]>("api/private/admin/readdoctors/"+id);
+    return this.http.get<User[]>("/api/private/admin/readdoctors/"+id);
   }
 
 

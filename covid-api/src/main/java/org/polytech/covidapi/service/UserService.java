@@ -1,5 +1,7 @@
 package org.polytech.covidapi.service;
 
+import java.util.Optional;
+
 import org.polytech.covidapi.domain.User;
 import org.polytech.covidapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User findOneByMail(String mail){
+    public Optional <User> findOneByMail(String mail){
         return userRepository.findOneByMail(mail);
     }
 

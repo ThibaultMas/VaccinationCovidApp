@@ -23,6 +23,9 @@
     "@fortawesome/angular-fontawesome": "^0.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -31,6 +34,7 @@
     "@angular-devkit/build-angular": "^16.2.3",
     "@angular/cli": "~16.2.3",
     "@angular/compiler-cli": "^16.2.0",
+    "@types/bcryptjs": "^2.4.6",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",

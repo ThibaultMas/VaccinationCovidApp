@@ -7,6 +7,7 @@ import org.polytech.covidapi.domain.Doctor;
 import org.polytech.covidapi.domain.SuperAdmin;
 import org.polytech.covidapi.domain.VaccinationCenter;
 import org.polytech.covidapi.repository.VaccinationCenterRepository;
+import org.polytech.covidapi.security.UserInfoUserDetailsService;
 import org.polytech.covidapi.service.AdminService;
 import org.polytech.covidapi.service.DoctorService;
 import org.polytech.covidapi.service.SuperAdminService;
@@ -34,6 +35,8 @@ public class SuperAdminController {
     private SuperAdminService superAdminService;
     @Autowired
     private DoctorService doctorService;
+    @Autowired
+    private UserInfoUserDetailsService userDetailsService;
 
     //Gestion des centres de vaccination (CRUD)
 
@@ -81,6 +84,7 @@ public class SuperAdminController {
         admin.setCenter(center);
         admin.setRole("admin");
         adminService.createAdmin(admin);
+        userDetailsService.addUserDetails(admin);
     }
 
     @DeleteMapping(path = "/deleteadmin/{id}")
@@ -106,6 +110,7 @@ public class SuperAdminController {
         doctor.setCenter(center);
         doctor.setRole("doctor");
         doctorService.createDoctor(doctor);
+        userDetailsService.addUserDetails(doctor);
     }
 
     @DeleteMapping(path = "/deletedoctor/{id}")
@@ -125,6 +130,7 @@ public class SuperAdminController {
     public void createSuperAdmin(@RequestBody SuperAdmin superAdmin){
         superAdmin.setRole("superadmin");
         superAdminService.createSuperAdmin(superAdmin);
+        userDetailsService.addUserDetails(superAdmin);
     }
 
     @GetMapping(path ="/readsuperadmins")

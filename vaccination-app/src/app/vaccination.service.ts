@@ -51,11 +51,11 @@ export class VaccinationService {
   }
 
   getAdminsByCenterId(center_id: number): Observable<User[]>{
-    return this.http.get<User[]>("api/private/superadmin/readadmins/"+center_id);
+    return this.http.get<User[]>("/api/private/superadmin/readadmins/"+center_id);
   }
 
   getDoctorsByCenterId(center_id: number): Observable<User[]>{
-    return this.http.get<User[]>("api/private/superadmin/readdoctors/"+center_id);
+    return this.http.get<User[]>("/api/private/superadmin/readdoctors/"+center_id);
   }
 
   getAdminCenter(admin_id: Number) : Observable<VaccinationCenter>{

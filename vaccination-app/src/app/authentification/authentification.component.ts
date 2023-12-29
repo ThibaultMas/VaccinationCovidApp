@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { compareSync } from 'bcryptjs';
+
 
 @Component({
   selector: 'app-authentification',
@@ -31,8 +33,9 @@ export class AuthentificationComponent implements OnInit{
       this.userService.getUserByMail(this.mail).subscribe(resultUser =>{
         this.user = resultUser;
         console.log(this.user);
-        if(this.user){
-          if(this.user.password == this.password){
+        if(this.user && this.password){
+          const isPasswordCorrect = compareSync(this.password, this.user.password);
+          if(isPasswordCorrect){
             this.router.navigate(['userdashboard', this.user.id]);
           }
           

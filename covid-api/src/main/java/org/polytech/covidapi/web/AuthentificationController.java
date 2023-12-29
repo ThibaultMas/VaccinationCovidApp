@@ -1,5 +1,7 @@
 package org.polytech.covidapi.web;
 
+import java.util.Optional;
+
 import org.polytech.covidapi.domain.User;
 import org.polytech.covidapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/private/auth")
+@RequestMapping("/api/public/auth")
 public class AuthentificationController {
     @Autowired
     private UserService userService;
 
     @GetMapping(path="/usermail/{mail}")
-    public User getUserByMail(@PathVariable String mail){
+    public Optional <User> getUserByMail(@PathVariable String mail){
         return userService.findOneByMail(mail);
     }
 
