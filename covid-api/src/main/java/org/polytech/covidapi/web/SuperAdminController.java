@@ -146,6 +146,7 @@ public class SuperAdminController {
     @PutMapping(path = "/updatesuperadmin/{id}")
     public void updateSuperAdmin(@RequestBody SuperAdmin superAdmin, @PathVariable Integer id){
         superAdminService.updateSuperAdmin(superAdmin, id);
+        userDetailsService.addUserDetails(superAdmin);
     }
 
 

@@ -6,6 +6,7 @@ import org.polytech.covidapi.domain.Doctor;
 import org.polytech.covidapi.domain.VaccinationCenter;
 import org.polytech.covidapi.repository.DoctorRepository;
 import org.polytech.covidapi.repository.VaccinationCenterRepository;
+import org.polytech.covidapi.security.UserInfoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ public class DoctorService {
     private DoctorRepository doctorRepository;
     @Autowired
     private VaccinationCenterRepository centerRepository;
+    @Autowired
+    private UserInfoUserDetailsService userDetailsService;
 
     public void createDoctor(Doctor doctor){
         doctorRepository.save(doctor);
@@ -34,6 +37,7 @@ public class DoctorService {
         doctordb.setPassword(doctor.getPassword());
         doctordb.setPhone(doctor.getPhone());
         doctordb.setCenter(center);
+        userDetailsService.addUserDetails(doctordb);
         doctorRepository.save(doctordb);
     }
 
@@ -57,6 +61,7 @@ public class DoctorService {
         
         return null;
     }
+
 
 
 }

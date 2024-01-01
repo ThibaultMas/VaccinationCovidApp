@@ -6,6 +6,7 @@ import org.polytech.covidapi.domain.Admin;
 import org.polytech.covidapi.domain.VaccinationCenter;
 import org.polytech.covidapi.repository.AdminRepository;
 import org.polytech.covidapi.repository.VaccinationCenterRepository;
+import org.polytech.covidapi.security.UserInfoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ public class AdminService {
     private AdminRepository adminRepository;
     @Autowired
     private VaccinationCenterRepository centerRepository;
+    @Autowired
+    UserInfoUserDetailsService userDetailsService;
 
     public void createAdmin(Admin admin){
         adminRepository.save(admin);
@@ -34,6 +37,7 @@ public class AdminService {
         admindb.setPassword(admin.getPassword());
         admindb.setPhone(admin.getPhone());
         admindb.setCenter(center);
+        userDetailsService.addUserDetails(admindb);
         adminRepository.save(admindb);
     }
 
@@ -61,6 +65,8 @@ public class AdminService {
         
         return null;
     }
+
+    
     
     
 }

@@ -7,6 +7,7 @@ import org.polytech.covidapi.repository.VaccinationCenterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class VaccinationCenterService{
     @Autowired
@@ -42,6 +43,7 @@ public class VaccinationCenterService{
     public VaccinationCenter findOneById(Integer center_id){
         return centerRepository.findOneById(center_id);
     }
+
 
 
 }

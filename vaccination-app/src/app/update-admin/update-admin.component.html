@@ -26,7 +26,7 @@
             <label for="centre"> Centre de ratachement </label>
             <select name="centre" id="centre" [(ngModel)]="selectedCenter">
                 <option disabled selected [ngValue]="undefined" > {{center.name}} </option>
-                <option *ngFor="let aCenter of centers" [ngValue]="aCenter"> {{aCenter.name}} </option>
+                <option *ngFor="let aCenter of centers" [ngValue]="aCenter"> -- {{aCenter.name}} --  </option>
             </select>
         </div>
         <div class="buttons">

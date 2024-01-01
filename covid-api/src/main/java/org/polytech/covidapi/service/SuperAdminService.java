@@ -35,4 +35,5 @@ public class SuperAdminService {
         superAdminRepository.save(superAdmindb);
     }
 
+
 }
